@@ -29,8 +29,14 @@ class NewSeries extends Component {
       }))
 	}
 	saveSeries() {
-	  alert(this.refs.comment.value)
-	  return false
+	  const newSeries = {
+      name: this.refs.name.value,
+      status: this.refs.status.value,
+      genre: this.refs.genre.value,
+      comment: this.refs.comment.value
+    }
+    api.saveSeries(newSeries)
+      .then((res) => console.log(res))
 	}
 	render() {
     return (
@@ -59,7 +65,7 @@ class NewSeries extends Component {
               <div className="col-sm-10">
                 <select ref='genre' className="form-control">
                   {this.state.genres
-                    .map( (index) => <option key={index} value={index}>{index}</option>)
+                    .map( index => <option key={index} value={index}>{index}</option>)
                   }
                 </select>
               </div>
