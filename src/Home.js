@@ -18,10 +18,12 @@ class Home extends Component {
       isLoading: true
     })
     api.loadGenres()
-      .then((res) => this.setState({
-        isLoading: false,
-        genres: res.data
-      }))
+      .then((res) => {
+        this.setState({
+          isLoading: false,
+          genres: res.data
+        })
+      })
 	}
 	renderGenreLink(genre) {
 	  return <span key={genre}>&nbsp;<Link to={`/series/${genre}`}>{genre}</Link>&nbsp;</span>
