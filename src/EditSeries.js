@@ -9,35 +9,43 @@ const statuses = {
     'toWatch': 'Assistir'
 }
 
-class NewSeries extends Component {
+class EditSeries extends Component {
   constructor(props) {
 		super(props)
     
 		this.state = {
       genres: [],
       isLoading: false,
-      redirect: false
+      redirect: false,
+      series: {}
 		}
-		this.saveSeries = this.saveSeries.bind(this)
+		this.updateSeries = this.updateSeries.bind(this)
 	}
 	componentDidMount(props) {
-    this.setState({
-      isLoading: true
-    })
+    this.setState({ isLoading: true })
+    api.loadSeriesById(this.props.match.params.id)
+      .then((res) => {
+        this.setState({ series: res.data })
+        this.refs.name.value = this.state.series.name,
+        this.refs.status.value = this.state.series.status,
+        this.refs.genre.value = this.state.series.genre,
+        this.refs.comment.value = this.state.series.comment
+      })
     api.loadGenres()
       .then((res) => this.setState({
         isLoading: false,
         genres: res.data
       }))
 	}
-	saveSeries() {
+	updateSeries() {
 	  const newSeries = {
+	    id: this.props.match.params.id,
       name: this.refs.name.value,
       status: this.refs.status.value,
       genre: this.refs.genre.value,
       comment: this.refs.comment.value
     }
-    api.saveSeries(newSeries)
+    api.updateSeries(newSeries)
       .then((res) => {
         this.setState({
           redirect: '/series/' + this.refs.genre.value
@@ -51,7 +59,7 @@ class NewSeries extends Component {
             this.state.redirect && 
             <Redirect to={this.state.redirect} />
           }
-          <h1>Nova série</h1>
+          <h1>Editar série</h1>
           <form>
             <div className="form-group now">
               <label className="col-sm-2 col-form-label">Nome:</label>
@@ -87,11 +95,11 @@ class NewSeries extends Component {
               </div>
             </div>
             <div className="form-group now">
-              <button type="button" className="btn btn-primary" onClick={this.saveSeries}>Salvar</button>
+              <button type="button" className="btn btn-primary" onClick={this.updateSeries}>Alterar</button>
             </div>
           </form>
         </section>
     )
   }
 }
-export default NewSeries
+export default EditSeries

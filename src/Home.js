@@ -26,7 +26,7 @@ class Home extends Component {
       })
 	}
 	renderGenreLink(genre) {
-	  return <span key={genre}>&nbsp;<Link to={`/series/${genre}`}>{genre}</Link>&nbsp;</span>
+	  return <span key={genre}>&nbsp;<Link className='btn btn-primary' to={`/series/${genre}`}>{genre}</Link>&nbsp;</span>
 	}
   render() {
     return (
@@ -35,7 +35,7 @@ class Home extends Component {
 					<div className="container">
 						<div className="row">
 							<div className="col-lg-12">
-								<h1><img src="images/logo.png" /></h1>
+								<h1><img src="/images/logo.png" /></h1>
 								<p>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</p>
 							</div>
 						</div>

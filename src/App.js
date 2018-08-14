@@ -8,6 +8,7 @@ import {
 import Home from './Home'
 import Series from './Series'
 import NewSeries from './NewSeries'
+import EditSeries from './EditSeries'
 
 const About = () => <section className="intro-section"><h1>Sobre</h1></section>
 
@@ -20,7 +21,7 @@ class App extends Component {
 						<div className="container">
 							<div className="navbar-header page-scroll">
 								<a className="navbar-brand page-scroll" href="#page-top">
-									<img src="images/logo.png" height="30" />
+									<img src="/images/logo.png" height="30" />
 								</a>
 							</div>
 							<div className="collapse navbar-collapse navbar-ex1-collapse">
@@ -41,6 +42,7 @@ class App extends Component {
 	      
 					<Route exact path='/' component={Home} />
 					<Route exact path='/series/:genre' component={Series} /> 
+					<Route exact path='/series-edit/:id' component={EditSeries} />
 					<Route exact path='/about' component={About} />
 					<Route exact path='/new' component={NewSeries} />
 				</div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import api from './Api'
 
 const statuses = {
@@ -15,9 +16,16 @@ class Series extends Component {
       isLoading: false,
       series: []
     }
+    
+    this.renderSeries = this.renderSeries.bind(this)
+    this.loadData = this.loadData.bind(this)
   }
   
   componentDidMount() {
+    this.loadData()
+  }
+  
+  loadData() {
     this.setState({
       isLoading: true
     })
@@ -30,9 +38,13 @@ class Series extends Component {
     })
   }
   
+  deleteSeries(id) {
+    api.deleteSeriesById(id).then((res) => this.loadData())
+  }
+  
   renderSeries(series) {
     return (
-      <div className="item  col-xs-4 col-lg-4">
+      <div key={series.id} className="item  col-xs-4 col-lg-4">
         <div className="thumbnail">
           <img className="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
           <div className="caption">
@@ -44,7 +56,8 @@ class Series extends Component {
                   {series.genre} / {statuses[series.status]}</p>
               </div>
               <div className="col-xs-12 col-md-6">
-                <a className="btn btn-success" href="">Gerenciar</a>
+                <Link className="btn btn-success" to={'/series-edit/' + series.id}>Editar</Link>&nbsp;
+                <a className="btn btn-danger" onClick={() => this.deleteSeries(series.id)}>Excluir</a>
               </div>
             </div>
           </div>
@@ -56,6 +69,14 @@ class Series extends Component {
     return (
       <section id="intro" className="intro-section">
         <h1>Séries - {this.props.match.params.genre}</h1>
+        {
+          this.state.isLoading &&
+          <p>Carregando, por favor aguarder...</p>
+        }
+        {
+          (this.state.series.length === 0 && !this.state.isLoading) &&
+          <div className='alert alert-info'>Nenhuma série cadastrada</div>
+        }
         <div id="series" className="row list-group">
           {
             !this.state.isLoading && 

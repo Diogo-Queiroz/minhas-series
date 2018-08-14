@@ -38,11 +38,55 @@
       "genre": "Ação",
       "comment": "Ótima narrativa, atores e atrizes fantásticos.",
       "id": 5
+    },
+    {
+      "name": "Wild Wild Country",
+      "status": "watched",
+      "genre": "Documentário",
+      "comment": "Documentário sobre os acontecimentos em Orgeon USA, e os seguidores do Osho.",
+      "id": 6
+    },
+    {
+      "name": "Two and a Half Men",
+      "status": "watching",
+      "genre": "Comédia",
+      "comment": "Dois irmãos, Charlie e Alan Harper convivem numa elegante mansão com Jake Harper e Berta.",
+      "id": 7
+    },
+    {
+      "name": "Jane The Virgin",
+      "status": "watching",
+      "genre": "Comédia",
+      "comment": "jane",
+      "id": 8
+    },
+    {
+      "name": "Jack Ryan",
+      "status": "toWatch",
+      "genre": "Ação",
+      "comment": "Tom Clancy's Series na Prime Video",
+      "id": 10
+    },
+    {
+      "name": "para editar",
+      "status": "watched",
+      "genre": "Documentário",
+      "comment": "bla bla bla",
+      "id": 11
+    },
+    {
+      "id": 12,
+      "name": "Esta editado",
+      "status": "watching",
+      "genre": "Comédia",
+      "comment": "bla bla bla bla 4 vezes"
     }
   ],
   "genres": [
     "Comédia",
     "Drama",
-    "Ação"
+    "Ação",
+    "Documentário",
+    "Musical"
   ]
 }
