@@ -54,13 +54,13 @@ class NewSeries extends Component {
           <h1>Nova série</h1>
           <form>
             <div className="form-group now">
-              <label className="col-sm-2 col-form-label">Nome:</label>
+              <label className="col-sm-2 col-form-label right">Nome:</label>
               <div className="col-sm-10">
                 <input type="text" ref='name' className="form-control"/>
               </div>
             </div>
             <div className="form-group now">
-              <label className="col-sm-2 col-form-label">Status:</label>
+              <label className="col-sm-2 col-form-label right">Status:</label>
               <div className="col-sm-10">
                 <select ref='status' className="form-control">
                   {Object
@@ -71,7 +71,7 @@ class NewSeries extends Component {
               </div>
             </div>
             <div className="form-group now">
-              <label className="col-sm-2 col-form-label">Gênero:</label>
+              <label className="col-sm-2 col-form-label right">Gênero:</label>
               <div className="col-sm-10">
                 <select ref='genre' className="form-control">
                   {this.state.genres
@@ -81,7 +81,7 @@ class NewSeries extends Component {
               </div>
             </div>
             <div className="form-group now">
-              <label className="col-sm-2 col-form-label">Comentários:</label>
+              <label className="col-sm-2 col-form-label right">Comentários:</label>
               <div className="col-sm-10">
                 <textarea ref='comment' className="form-control"></textarea>
               </div>

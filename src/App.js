@@ -9,8 +9,9 @@ import Home from './Home'
 import Series from './Series'
 import NewSeries from './NewSeries'
 import EditSeries from './EditSeries'
+import About from './About'
 
-const About = () => <section className="intro-section"><h1>Sobre</h1></section>
+//const About = () => <section className="intro-section"><h1>Sobre</h1></section>
 
 class App extends Component {
 	render() {

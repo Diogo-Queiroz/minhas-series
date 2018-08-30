@@ -26,7 +26,7 @@ class Home extends Component {
       })
 	}
 	renderGenreLink(genre) {
-	  return <span key={genre}>&nbsp;<Link className='btn btn-primary' to={`/series/${genre}`}>{genre}</Link>&nbsp;</span>
+	  return <span key={genre}>&nbsp;<Link className='link-genre' to={`/series/${genre}`}>{genre}</Link>&nbsp;</span>
 	}
   render() {
     return (
