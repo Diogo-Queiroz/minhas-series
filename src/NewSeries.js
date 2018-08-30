@@ -52,43 +52,26 @@ class NewSeries extends Component {
             <Redirect to={this.state.redirect} />
           }
           <h1>Nova série</h1>
-          <form>
-            <div className="form-group now">
-              <label className="col-sm-2 col-form-label right">Nome:</label>
-              <div className="col-sm-10">
-                <input type="text" ref='name' className="form-control"/>
-              </div>
-            </div>
-            <div className="form-group now">
-              <label className="col-sm-2 col-form-label right">Status:</label>
-              <div className="col-sm-10">
-                <select ref='status' className="form-control">
-                  {Object
-                    .keys(statuses)
-                    .map( key => <option key={key} value={key}>{statuses[key]}</option>)
-                  }
-                </select>
-              </div>
-            </div>
-            <div className="form-group now">
-              <label className="col-sm-2 col-form-label right">Gênero:</label>
-              <div className="col-sm-10">
-                <select ref='genre' className="form-control">
-                  {this.state.genres
-                    .map( index => <option key={index} value={index}>{index}</option>)
-                  }
-                </select>
-              </div>
-            </div>
-            <div className="form-group now">
-              <label className="col-sm-2 col-form-label right">Comentários:</label>
-              <div className="col-sm-10">
-                <textarea ref='comment' className="form-control"></textarea>
-              </div>
-            </div>
-            <div className="form-group now">
-              <button type="button" className="btn btn-primary" onClick={this.saveSeries}>Salvar</button>
-            </div>
+          <form className='form'>
+            <label className='label-name'>Nome:</label>
+            <input type="text" ref='name' className='name input-form'/>
+            <label className='label-statuses'>Status:</label>
+            <select ref='status' className='statuses input-form'>
+              {Object
+                .keys(statuses)
+                .map( key => <option key={key} value={key}>{statuses[key]}</option>)
+              }
+            </select>
+            <label className='label-genres'>Gênero:</label>
+            <select ref='genre' className='genres input-form'>
+              {this.state.genres
+                .map( index => <option key={index} value={index}>{index}</option>)
+              }
+            </select>
+            <label className='label-comments'>Comentários:</label>
+            <textarea className='comments' ref='comment'></textarea>
+            <button type="button" className="submit btn btn-primary" onClick={this.saveSeries}>Salvar</button>
+            <button type="reset" className="reset btn btn-danger">Reset</button>
           </form>
         </section>
     )
